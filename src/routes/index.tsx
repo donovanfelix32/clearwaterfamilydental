@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-dental.jpg";
 import aboutImg from "@/assets/about-office.jpg";
 import techImg from "@/assets/tech-dental.jpg";
@@ -177,7 +177,7 @@ function Hero() {
 }
 
 function Icon({ name }: { name: string }) {
-  const paths: Record<string, JSX.Element> = {
+  const paths: Record<string, React.ReactElement> = {
     badge: <path d="M12 2l2.4 4.8L20 8l-4 3.9.9 5.6L12 14.9 7.1 17.5 8 11.9 4 8l5.6-1.2L12 2z"/>,
     heart: <path d="M12 21s-7-4.4-9.3-9C1.3 9 3 5 7 5c2 0 3.4 1 5 3 1.6-2 3-3 5-3 4 0 5.7 4 4.3 7-2.3 4.6-9.3 9-9.3 9z"/>,
     cpu: <path d="M9 3v2H7a2 2 0 00-2 2v2H3v2h2v2H3v2h2v2a2 2 0 002 2h2v2h2v-2h2v2h2v-2h2a2 2 0 002-2v-2h2v-2h-2v-2h2V9h-2V7a2 2 0 00-2-2h-2V3h-2v2h-2V3h-2v2H9V3H9z"/>,
