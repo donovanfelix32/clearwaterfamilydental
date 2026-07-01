@@ -111,7 +111,7 @@ function Hero() {
     <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 -z-20">
         <img
-          src={teamPhotoAsset.url}
+          src={teamPhoto}
           alt="The Clearwater Family Dental team smiling together in Clearwater, Florida"
           width={1920}
           height={1080}
