@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-dental.jpg";
 import aboutImg from "@/assets/about-office.jpg";
 import techImg from "@/assets/tech-dental.jpg";
+import teamPhotoAsset from "@/assets/team-photo.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -780,12 +781,41 @@ function Footer() {
   );
 }
 
+function TeamPhotoBanner() {
+  return (
+    <section className="section-pad bg-background overflow-hidden">
+      <div className="container-px mx-auto max-w-7xl">
+        <div className="relative rounded-[2rem] overflow-hidden shadow-elevated">
+          <img
+            src={teamPhotoAsset.url}
+            alt="The Clearwater Family Dental team smiling together outdoors in Clearwater, Florida"
+            width={1920}
+            height={1080}
+            className="w-full h-auto object-cover aspect-[16/9] md:aspect-[21/9]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A2B49]/70 via-transparent to-transparent" aria-hidden />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/80">Our Team</span>
+            <h2 className="mt-2 text-2xl md:text-3xl font-display font-bold text-white">
+              The People Behind Your Smile
+            </h2>
+            <p className="mt-2 text-sm md:text-base text-white/80 max-w-xl">
+              A compassionate, experienced team dedicated to making every visit comfortable — from our doctors to our hygienists and support staff.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
         <Hero />
+        <TeamPhotoBanner />
         <WhyUs />
         <About />
         <Team />
