@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-dental.jpg";
 import aboutImg from "@/assets/about-office.jpg";
 import techImg from "@/assets/tech-dental.jpg";
-import teamPhotoAsset from "@/assets/team-photo.jpg.asset.json";
+import teamPhoto from "@/assets/team-photo.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -108,24 +108,30 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="home" className="relative pt-28 md:pt-32 pb-16 md:pb-24 overflow-hidden">
-      <div aria-hidden className="absolute inset-0 -z-10">
-        <div className="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-primary-soft blur-3xl opacity-70" />
-        <div className="absolute -bottom-32 -left-32 h-[420px] w-[420px] rounded-full bg-secondary-soft blur-3xl opacity-70" />
+    <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
+      <div className="absolute inset-0 -z-20">
+        <img
+          src={teamPhoto}
+          alt="The Clearwater Family Dental team smiling together in Clearwater, Florida"
+          width={1920}
+          height={1080}
+          className="w-full h-full object-cover"
+        />
       </div>
-      <div className="container-px mx-auto max-w-7xl grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-        <div className="lg:col-span-6 fade-up">
-          <span className="inline-flex items-center gap-2 rounded-full bg-primary-soft text-primary px-3.5 py-1.5 text-xs font-semibold tracking-wide">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Accepting New Patients
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1A2B49]/90 via-[#1A2B49]/60 to-[#1A2B49]/20" aria-hidden />
+      <div className="container-px mx-auto max-w-7xl w-full pt-28 md:pt-32 pb-16 md:pb-24">
+        <div className="max-w-2xl fade-up">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/15 text-white px-3.5 py-1.5 text-xs font-semibold tracking-wide backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-secondary" /> Accepting New Patients
           </span>
-          <h1 className="mt-5 font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-foreground">
+          <h1 className="mt-5 font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-white">
             We Love Helping Create{" "}
             <span className="text-primary">Beautiful & Healthy</span> Smiles
           </h1>
-          <p className="mt-5 text-lg md:text-xl text-foreground/80 font-medium">
+          <p className="mt-5 text-lg md:text-xl text-white/90 font-medium">
             Exceptional Family Dentistry in Clearwater, Florida.
           </p>
-          <p className="mt-3 text-base text-muted-foreground max-w-xl">
+          <p className="mt-3 text-base text-white/70 max-w-xl">
             Providing compassionate, comprehensive dental care with advanced technology and a patient-first approach.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -143,34 +149,11 @@ function Hero() {
               { t: "Same-Day", s: "Emergencies" },
             ].map((b) => (
               <li key={b.t} className="flex flex-col">
-                <span className="font-display font-bold text-foreground text-base sm:text-lg">{b.t}</span>
-                <span className="text-muted-foreground">{b.s}</span>
+                <span className="font-display font-bold text-white text-base sm:text-lg">{b.t}</span>
+                <span className="text-white/70">{b.s}</span>
               </li>
             ))}
           </ul>
-        </div>
-        <div className="lg:col-span-6 fade-up">
-          <div className="relative">
-            <div className="absolute -inset-3 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-[2rem] blur-xl" aria-hidden />
-            <img
-              src={heroImg}
-              alt="Friendly dentist greeting a patient in a bright, modern Clearwater dental office"
-              width={1920}
-              height={1280}
-              className="relative w-full h-auto rounded-[2rem] object-cover shadow-elevated aspect-[4/3]"
-            />
-            <div className="absolute -bottom-6 -left-6 glass rounded-2xl px-5 py-4 shadow-soft hidden sm:flex items-center gap-3 max-w-xs">
-              <div className="flex -space-x-2">
-                {["#1565C0", "#2E7D32", "#1A2B49"].map((c) => (
-                  <span key={c} className="h-9 w-9 rounded-full border-2 border-white" style={{ background: c }} />
-                ))}
-              </div>
-              <div className="text-xs">
-                <div className="font-semibold text-foreground">Trusted by 967+ families</div>
-                <div className="text-muted-foreground">⭐⭐⭐⭐⭐ on Google</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -781,33 +764,6 @@ function Footer() {
   );
 }
 
-function TeamPhotoBanner() {
-  return (
-    <section className="section-pad bg-background overflow-hidden">
-      <div className="container-px mx-auto max-w-7xl">
-        <div className="relative rounded-[2rem] overflow-hidden shadow-elevated">
-          <img
-            src={teamPhotoAsset.url}
-            alt="The Clearwater Family Dental team smiling together outdoors in Clearwater, Florida"
-            width={1920}
-            height={1080}
-            className="w-full h-auto object-cover aspect-[16/9] md:aspect-[21/9]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1A2B49]/70 via-transparent to-transparent" aria-hidden />
-          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-white/80">Our Team</span>
-            <h2 className="mt-2 text-2xl md:text-3xl font-display font-bold text-white">
-              The People Behind Your Smile
-            </h2>
-            <p className="mt-2 text-sm md:text-base text-white/80 max-w-xl">
-              A compassionate, experienced team dedicated to making every visit comfortable — from our doctors to our hygienists and support staff.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function Home() {
   return (
@@ -815,7 +771,6 @@ function Home() {
       <Header />
       <main>
         <Hero />
-        <TeamPhotoBanner />
         <WhyUs />
         <About />
         <Team />
