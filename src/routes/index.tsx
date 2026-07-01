@@ -787,6 +787,7 @@ function Home() {
       <Header />
       <main>
         <Hero />
+        <TeamPhotoBanner />
         <WhyUs />
         <About />
         <Team />
