@@ -115,10 +115,10 @@ function Hero() {
           alt="The Clearwater Family Dental team smiling together in Clearwater, Florida"
           width={1920}
           height={1080}
-          className="w-full h-full object-cover object-[center_15%] sm:object-center scale-110"
+          className="w-full h-full object-cover"
         />
       </div>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1A2B49]/85 via-[#1A2B49]/70 to-[#1A2B49]/40 sm:bg-gradient-to-r sm:from-[#1A2B49]/90 sm:via-[#1A2B49]/60 sm:to-[#1A2B49]/20" aria-hidden />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1A2B49]/90 via-[#1A2B49]/60 to-[#1A2B49]/20" aria-hidden />
       <div className="container-px mx-auto max-w-7xl w-full pt-28 md:pt-32 pb-16 md:pb-24">
         <div className="max-w-2xl fade-up">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/15 text-white px-3.5 py-1.5 text-xs font-semibold tracking-wide backdrop-blur-sm">
