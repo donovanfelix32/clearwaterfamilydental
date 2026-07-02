@@ -108,9 +108,9 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="home" className="relative lg:min-h-[85vh] lg:flex lg:items-center overflow-hidden">
+    <section id="home" className="relative lg:min-h-[85vh] lg:flex lg:items-center overflow-hidden bg-background">
       {/* Mobile-only brand strip */}
-      <div className="lg:hidden pt-20 pb-3 text-center container-px">
+      <div className="lg:hidden pt-20 pb-3 text-center container-px bg-background">
         <h2 className="font-display font-bold text-xl text-foreground tracking-tight">Clearwater Family Dental</h2>
         <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mt-0.5">Clearwater, Florida</p>
       </div>
@@ -122,16 +122,18 @@ function Hero() {
           alt="The Clearwater Family Dental team smiling together in Clearwater, Florida"
           className="absolute inset-0 w-full h-full object-cover object-top"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A2B49]/85 via-[#1A2B49]/25 to-transparent" aria-hidden />
+        {/* Strong bottom scrim for ADA contrast (>= 7:1 on headline) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/70 to-[#0A1628]/10" aria-hidden />
         <div className="absolute inset-x-0 bottom-0 p-5">
           <h1
             className="font-display font-bold text-white text-[26px] leading-[1.15] tracking-tight"
-            style={{ textShadow: "0 2px 12px rgba(0,0,0,0.55)" }}
+            style={{ textShadow: "0 2px 14px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.6)" }}
           >
             We love helping create beautiful, healthy smiles.
           </h1>
         </div>
       </div>
+
 
       {/* Mobile content block below photo */}
       <div className="lg:hidden container-px py-8 fade-up">
