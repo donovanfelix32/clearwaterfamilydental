@@ -1,18 +1,25 @@
 ## Plan
 
-Move the team photo from its current standalone `TeamPhotoBanner` section (below Hero) into the Hero section itself, positioning it as a large atmospheric background behind the "We Love Helping Create Beautiful & Healthy Smiles" headline.
+Restructure the mobile Hero so the team photo is clearly visible behind the headline, add a Clearwater Family Dental brand strip above the photo, and make the photo occupy roughly half the first mobile screen.
 
-### What will change
-- Remove the separate `TeamPhotoBanner` section from the page flow.
-- Use the team photo as a full-bleed or large background image within the Hero section.
-- Overlay a dark gradient or scrim on the image so the white headline text remains highly readable.
-- Adjust the Hero layout so the text block sits over the left portion of the image, while the image extends behind it.
-- Keep the trust badges, CTA buttons, and phone number visible and accessible below the headline.
+### Mobile layout (top to bottom, first screen)
+1. **Brand strip** (above the photo, below the sticky header):
+   - Centered "Clearwater Family Dental" wordmark in Poppins bold, with "Clearwater, FL" small caps subtitle.
+   - Compact vertical padding so it doesn't eat the photo's space.
+2. **Photo hero band** — height `50vh` on mobile:
+   - Team photo as background, `object-cover object-top` so faces stay in frame.
+   - Light overlay only (dark gradient from bottom ~60% → transparent at top) so the photo reads clearly.
+   - Headline "We love helping create beautiful, healthy smiles." overlaid on the bottom of the band in white with a text-shadow for legibility.
+3. **Content block** below the photo band (still part of Hero):
+   - Trust pill ("Accepting New Patients"), supporting subheads, CTAs (Schedule Appointment / Call Now), and the 4 trust stats — all on white background for maximum readability.
 
-### Why this approach
-- This directly satisfies "bigger" (full-bleed hero background) and "closer to the top" (inside the Hero section, the topmost content area).
-- "Behind the words" is achieved by making the image a background layer with the text overlaying it.
-- The dark navy gradient (`#1A2B49`) aligns with the existing brand palette and ensures sufficient contrast for the white/primary-colored headline.
+### Desktop
+- Keep the existing full-bleed image hero with side gradient and left-aligned text block (unchanged behavior). The new brand strip and split-band structure are mobile-only via responsive classes.
+
+### Copy changes
+- Update the headline text to exactly: "We love helping create beautiful, healthy smiles." (replaces the current "We Love Helping Create Beautiful & Healthy Smiles" split styling on mobile; desktop keeps the accent-colored version).
 
 ### Files to edit
-- `src/routes/index.tsx`: Restructure the Hero component, remove `TeamPhotoBanner`, and adjust the `Home` component layout order.
+- `src/routes/index.tsx`: rewrite the `Hero` component to implement the mobile brand strip + 50vh photo band + content block, keeping the desktop layout intact.
+
+No other sections, styles, or assets change.

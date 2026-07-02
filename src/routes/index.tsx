@@ -108,27 +108,85 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0 -z-20">
+    <section id="home" className="relative lg:min-h-[85vh] lg:flex lg:items-center overflow-hidden">
+      {/* Mobile-only brand strip */}
+      <div className="lg:hidden pt-20 pb-3 text-center container-px">
+        <h2 className="font-display font-bold text-xl text-foreground tracking-tight">Clearwater Family Dental</h2>
+        <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mt-0.5">Clearwater, Florida</p>
+      </div>
+
+      {/* Mobile photo band with headline overlaid */}
+      <div className="lg:hidden relative h-[50vh] w-full overflow-hidden">
         <img
           src={teamPhoto}
           alt="The Clearwater Family Dental team smiling together in Clearwater, Florida"
+          className="absolute inset-0 w-full h-full object-cover object-top"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A2B49]/85 via-[#1A2B49]/25 to-transparent" aria-hidden />
+        <div className="absolute inset-x-0 bottom-0 p-5">
+          <h1
+            className="font-display font-bold text-white text-[26px] leading-[1.15] tracking-tight"
+            style={{ textShadow: "0 2px 12px rgba(0,0,0,0.55)" }}
+          >
+            We love helping create beautiful, healthy smiles.
+          </h1>
+        </div>
+      </div>
+
+      {/* Mobile content block below photo */}
+      <div className="lg:hidden container-px py-8 fade-up">
+        <span className="inline-flex items-center gap-2 rounded-full bg-primary-soft text-primary px-3.5 py-1.5 text-xs font-semibold tracking-wide">
+          <span className="h-1.5 w-1.5 rounded-full bg-secondary" /> Accepting New Patients
+        </span>
+        <p className="mt-4 text-lg text-foreground font-semibold">
+          Exceptional Family Dentistry in Clearwater, Florida.
+        </p>
+        <p className="mt-2 text-base text-muted-foreground">
+          Compassionate, comprehensive dental care with advanced technology and a patient-first approach.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a href="#contact" className="btn-primary">Schedule Appointment</a>
+          <a href={PHONE_HREF} className="btn-secondary">
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A18 18 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2.2z"/></svg>
+            Call Now
+          </a>
+        </div>
+        <ul className="mt-7 grid grid-cols-2 gap-x-4 gap-y-3 text-xs">
+          {[
+            { t: "5.0★", s: "Google Rating" },
+            { t: "967+", s: "Reviews" },
+            { t: "Patients First", s: "Philosophy" },
+            { t: "Same-Day", s: "Emergencies" },
+          ].map((b) => (
+            <li key={b.t} className="flex flex-col">
+              <span className="font-display font-bold text-foreground text-base">{b.t}</span>
+              <span className="text-muted-foreground">{b.s}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Desktop full-bleed hero */}
+      <div className="hidden lg:block absolute inset-0 -z-20">
+        <img
+          src={teamPhoto}
+          alt=""
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="absolute inset-0 -z-10 bg-[#1A2B49]/80 sm:bg-gradient-to-r sm:from-[#1A2B49]/90 sm:via-[#1A2B49]/60 sm:to-[#1A2B49]/20" aria-hidden />
-      <div className="container-px mx-auto max-w-7xl w-full pt-28 md:pt-32 pb-16 md:pb-24">
+      <div className="hidden lg:block absolute inset-0 -z-10 bg-gradient-to-r from-[#1A2B49]/90 via-[#1A2B49]/60 to-[#1A2B49]/20" aria-hidden />
+      <div className="hidden lg:block container-px mx-auto max-w-7xl w-full pt-32 pb-24">
         <div className="max-w-2xl fade-up">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/15 text-white px-3.5 py-1.5 text-xs font-semibold tracking-wide backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-secondary" /> Accepting New Patients
           </span>
-          <h1 className="mt-5 font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-white">
+          <h1 className="mt-5 font-display font-bold text-5xl lg:text-6xl leading-[1.05] tracking-tight text-white">
             We Love Helping Create{" "}
             <span className="text-primary">Beautiful & Healthy</span> Smiles
           </h1>
-          <p className="mt-5 text-lg md:text-xl text-white/90 font-medium">
+          <p className="mt-5 text-xl text-white/90 font-medium">
             Exceptional Family Dentistry in Clearwater, Florida.
           </p>
           <p className="mt-3 text-base text-white/70 max-w-xl">
@@ -141,7 +199,7 @@ function Hero() {
               Call Now
             </a>
           </div>
-          <ul className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-3 text-xs sm:text-sm">
+          <ul className="mt-8 grid grid-cols-4 gap-x-4 gap-y-3 text-sm">
             {[
               { t: "5.0★", s: "Google Rating" },
               { t: "967+", s: "Reviews" },
@@ -149,7 +207,7 @@ function Hero() {
               { t: "Same-Day", s: "Emergencies" },
             ].map((b) => (
               <li key={b.t} className="flex flex-col">
-                <span className="font-display font-bold text-white text-base sm:text-lg">{b.t}</span>
+                <span className="font-display font-bold text-white text-lg">{b.t}</span>
                 <span className="text-white/70">{b.s}</span>
               </li>
             ))}
@@ -159,6 +217,7 @@ function Hero() {
     </section>
   );
 }
+
 
 function Icon({ name }: { name: string }) {
   const paths: Record<string, React.ReactElement> = {
