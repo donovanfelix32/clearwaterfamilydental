@@ -122,17 +122,14 @@ function Hero() {
           alt="The Clearwater Family Dental team smiling together in Clearwater, Florida"
           className="absolute inset-0 w-full h-full object-cover object-top"
         />
-        {/* Strong bottom scrim for ADA contrast (>= 7:1 on headline) */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/70 to-[#0A1628]/10" aria-hidden />
-        <div className="absolute inset-x-0 bottom-0 p-5">
-          <h1
-            className="font-display font-bold text-white text-[26px] leading-[1.15] tracking-tight"
-            style={{ textShadow: "0 2px 14px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.6)" }}
-          >
+        {/* Solid dark panel anchored to bottom guarantees AAA contrast for headline */}
+        <div className="absolute inset-x-0 bottom-0 bg-[#0A1628]/95 backdrop-blur-[2px] px-5 pt-4 pb-5 border-t-2 border-primary/60">
+          <h1 className="font-display font-bold text-white text-[24px] leading-[1.2] tracking-tight">
             We love helping create beautiful, healthy smiles.
           </h1>
         </div>
       </div>
+
 
 
       {/* Mobile content block below photo */}
